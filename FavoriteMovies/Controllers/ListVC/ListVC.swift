@@ -10,8 +10,18 @@ import RxSwift
 
 class ListVC: UIViewController {
     
+    private enum AddMoviePanelStatus {
+        case open, close
+    }
+    
     let model: ListViewModel
     let disposeBag = DisposeBag()
+    
+    private var addMoviePanelStatus = AddMoviePanelStatus.close {
+        didSet {
+            changeAddMoviePanel(toStatus: addMoviePanelStatus)
+        }
+    }
     
     @IBOutlet weak var addMovieView: UIView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -22,7 +32,8 @@ class ListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeAddMoviePanel()
+        //for init value
+        changeAddMoviePanel(toStatus: .close)
     }
     
     init(model: ListViewModel) {
@@ -34,15 +45,29 @@ class ListVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    ///Close add movie panel
-    private func closeAddMoviePanel() {
-        addMovieView.transform = CGAffineTransform(scaleX: 0, y: 1)
+    ///Change add movie panel status
+    private func changeAddMoviePanel(toStatus status: AddMoviePanelStatus) {
+        switch status {
+        case .open:
+            UIView.animate(withDuration: 0.2, delay: 0.05, options: .curveEaseIn) {
+                self.addMovieView.transform = .identity
+                self.openPanelButton.alpha = 0
+            }
+        case .close:
+            addMovieView.transform = CGAffineTransform(translationX: 0, y: -250)
+            self.openPanelButton.alpha = 1
+        }
     }
     
     @IBAction func addMovieAction(_ sender: Any) {
     }
     
+    @IBAction func cancelAction(_ sender: Any) {
+        addMoviePanelStatus = .close
+    }
+    
     @IBAction func openPanelAction(_ sender: Any) {
+        addMoviePanelStatus = .open
     }
     
 }
