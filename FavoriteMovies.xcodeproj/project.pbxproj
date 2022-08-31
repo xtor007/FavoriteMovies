@@ -9,23 +9,24 @@
 /* Begin PBXBuildFile section */
 		FF85FAB728BFEBAE00B68C1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAB628BFEBAE00B68C1A /* AppDelegate.swift */; };
 		FF85FAB928BFEBAE00B68C1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAB828BFEBAE00B68C1A /* SceneDelegate.swift */; };
-		FF85FABB28BFEBAE00B68C1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FABA28BFEBAE00B68C1A /* ViewController.swift */; };
-		FF85FABE28BFEBAE00B68C1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF85FABC28BFEBAE00B68C1A /* Main.storyboard */; };
 		FF85FAC128BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF85FABF28BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld */; };
 		FF85FAC328BFEBC100B68C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF85FAC228BFEBC100B68C1A /* Assets.xcassets */; };
-		FF85FAC628BFEBC100B68C1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF85FAC428BFEBC100B68C1A /* LaunchScreen.storyboard */; };
+		FF85FAD128BFF5D800B68C1A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF85FAD028BFF5D800B68C1A /* RxSwift */; };
+		FF85FAD628BFF93D00B68C1A /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAD428BFF93D00B68C1A /* ListVC.swift */; };
+		FF85FAD728BFF93D00B68C1A /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF85FAD528BFF93D00B68C1A /* ListVC.xib */; };
+		FF85FAD928BFF98D00B68C1A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAD828BFF98D00B68C1A /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF85FAB328BFEBAE00B68C1A /* FavoriteMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF85FAB628BFEBAE00B68C1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF85FAB828BFEBAE00B68C1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF85FABA28BFEBAE00B68C1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF85FABD28BFEBAE00B68C1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF85FAC028BFEBAE00B68C1A /* FavoriteMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteMovies.xcdatamodel; sourceTree = "<group>"; };
 		FF85FAC228BFEBC100B68C1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FF85FAC528BFEBC100B68C1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF85FAC728BFEBC100B68C1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF85FAD428BFF93D00B68C1A /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		FF85FAD528BFF93D00B68C1A /* ListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVC.xib; sourceTree = "<group>"; };
+		FF85FAD828BFF98D00B68C1A /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF85FAD128BFF5D800B68C1A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,16 +60,48 @@
 		FF85FAB528BFEBAE00B68C1A /* FavoriteMovies */ = {
 			isa = PBXGroup;
 			children = (
-				FF85FAB628BFEBAE00B68C1A /* AppDelegate.swift */,
-				FF85FAB828BFEBAE00B68C1A /* SceneDelegate.swift */,
-				FF85FABA28BFEBAE00B68C1A /* ViewController.swift */,
-				FF85FABC28BFEBAE00B68C1A /* Main.storyboard */,
-				FF85FAC228BFEBC100B68C1A /* Assets.xcassets */,
-				FF85FAC428BFEBC100B68C1A /* LaunchScreen.storyboard */,
-				FF85FAC728BFEBC100B68C1A /* Info.plist */,
-				FF85FABF28BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld */,
+				FF85FAD228BFF8FB00B68C1A /* Controllers */,
+				FF85FACE28BFEC3500B68C1A /* Resources */,
+				FF85FACD28BFEBE200B68C1A /* App */,
 			);
 			path = FavoriteMovies;
+			sourceTree = "<group>";
+		};
+		FF85FACD28BFEBE200B68C1A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FF85FAB628BFEBAE00B68C1A /* AppDelegate.swift */,
+				FF85FAB828BFEBAE00B68C1A /* SceneDelegate.swift */,
+				FF85FAC728BFEBC100B68C1A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FF85FACE28BFEC3500B68C1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF85FAC228BFEBC100B68C1A /* Assets.xcassets */,
+				FF85FABF28BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FF85FAD228BFF8FB00B68C1A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF85FAD328BFF90E00B68C1A /* ListVC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF85FAD328BFF90E00B68C1A /* ListVC */ = {
+			isa = PBXGroup;
+			children = (
+				FF85FAD428BFF93D00B68C1A /* ListVC.swift */,
+				FF85FAD528BFF93D00B68C1A /* ListVC.xib */,
+				FF85FAD828BFF98D00B68C1A /* ListViewModel.swift */,
+			);
+			path = ListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +120,9 @@
 			dependencies = (
 			);
 			name = FavoriteMovies;
+			packageProductDependencies = (
+				FF85FAD028BFF5D800B68C1A /* RxSwift */,
+			);
 			productName = FavoriteMovies;
 			productReference = FF85FAB328BFEBAE00B68C1A /* FavoriteMovies.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +151,9 @@
 				Base,
 			);
 			mainGroup = FF85FAAA28BFEBAD00B68C1A;
+			packageReferences = (
+				FF85FACF28BFF5D700B68C1A /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = FF85FAB428BFEBAE00B68C1A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,9 +168,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF85FAC628BFEBC100B68C1A /* LaunchScreen.storyboard in Resources */,
+				FF85FAD728BFF93D00B68C1A /* ListVC.xib in Resources */,
 				FF85FAC328BFEBC100B68C1A /* Assets.xcassets in Resources */,
-				FF85FABE28BFEBAE00B68C1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +180,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF85FABB28BFEBAE00B68C1A /* ViewController.swift in Sources */,
+				FF85FAD928BFF98D00B68C1A /* ListViewModel.swift in Sources */,
+				FF85FAD628BFF93D00B68C1A /* ListVC.swift in Sources */,
 				FF85FAB728BFEBAE00B68C1A /* AppDelegate.swift in Sources */,
 				FF85FAC128BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld in Sources */,
 				FF85FAB928BFEBAE00B68C1A /* SceneDelegate.swift in Sources */,
@@ -149,25 +189,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FF85FABC28BFEBAE00B68C1A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF85FABD28BFEBAE00B68C1A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FF85FAC428BFEBC100B68C1A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF85FAC528BFEBC100B68C1A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF85FAC828BFEBC100B68C1A /* Debug */ = {
@@ -293,10 +314,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AF68Y4A9MG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FavoriteMovies/Info.plist;
+				INFOPLIST_FILE = FavoriteMovies/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,10 +341,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AF68Y4A9MG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FavoriteMovies/Info.plist;
+				INFOPLIST_FILE = FavoriteMovies/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -362,6 +381,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FF85FACF28BFF5D700B68C1A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF85FAD028BFF5D800B68C1A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF85FACF28BFF5D700B68C1A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF85FABF28BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld */ = {

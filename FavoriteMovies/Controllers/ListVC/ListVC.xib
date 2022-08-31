@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListVC" customModule="FavoriteMovies" customModuleProvider="target">
+            <connections>
+                <outlet property="addMovieView" destination="qOj-49-Y7s" id="ce0-eE-H6N"/>
+                <outlet property="moviesTable" destination="Vj1-DR-Hvn" id="Gqr-Qd-hsH"/>
+                <outlet property="openPanelButton" destination="uaU-Qg-jpk" id="PBK-mv-MS9"/>
+                <outlet property="titleTextField" destination="Ga4-wP-vyQ" id="QAP-N9-dfc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearTextField" destination="RHN-9L-5Xy" id="G98-wH-Jek"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOj-49-Y7s">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XWQ-jh-GJk">
+                            <rect key="frame" x="20" y="70" width="374" height="130"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ga4-wP-vyQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="33"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHN-9L-5Xy">
+                                    <rect key="frame" x="0.0" y="49" width="374" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1x-1b-pAT">
+                                    <rect key="frame" x="0.0" y="99" width="374" height="31"/>
+                                    <color key="backgroundColor" name="TintColor"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                    <connections>
+                                        <action selector="addMovieAction:" destination="-1" eventType="touchUpInside" id="UcB-Cp-TFz"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="XWQ-jh-GJk" secondAttribute="trailing" constant="20" id="GPk-Xj-hDr"/>
+                        <constraint firstAttribute="height" constant="250" id="Kmd-bs-wIX"/>
+                        <constraint firstAttribute="bottom" secondItem="XWQ-jh-GJk" secondAttribute="bottom" constant="50" id="Yg3-Vr-jVd"/>
+                        <constraint firstItem="XWQ-jh-GJk" firstAttribute="leading" secondItem="qOj-49-Y7s" secondAttribute="leading" constant="20" id="rWk-tr-UG2"/>
+                        <constraint firstItem="XWQ-jh-GJk" firstAttribute="top" secondItem="qOj-49-Y7s" secondAttribute="top" constant="70" id="roX-9r-pb5"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vj1-DR-Hvn">
+                    <rect key="frame" x="0.0" y="250" width="414" height="612"/>
+                    <color key="backgroundColor" name="BackgroundColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaU-Qg-jpk">
+                    <rect key="frame" x="20" y="258" width="70" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="ebL-0A-kFk"/>
+                        <constraint firstAttribute="height" constant="50" id="mJS-4A-Jh5"/>
+                    </constraints>
+                    <color key="tintColor" name="TintColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="openPanelAction:" destination="-1" eventType="touchUpInside" id="Vkx-fg-i7s"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
+            <constraints>
+                <constraint firstItem="uaU-Qg-jpk" firstAttribute="top" secondItem="qOj-49-Y7s" secondAttribute="bottom" constant="8" id="5X1-Q2-hs2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vj1-DR-Hvn" secondAttribute="trailing" id="H2x-5G-vjF"/>
+                <constraint firstItem="Vj1-DR-Hvn" firstAttribute="top" secondItem="qOj-49-Y7s" secondAttribute="bottom" id="HyN-5c-QUw"/>
+                <constraint firstItem="qOj-49-Y7s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aAV-8g-oph"/>
+                <constraint firstItem="uaU-Qg-jpk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="t0u-h1-7gw"/>
+                <constraint firstItem="qOj-49-Y7s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ufQ-wF-hTk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Vj1-DR-Hvn" secondAttribute="bottom" id="wA8-iF-2G1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qOj-49-Y7s" secondAttribute="trailing" id="wuE-Ea-4fU"/>
+                <constraint firstItem="Vj1-DR-Hvn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z16-Ko-Bvm"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.6470588235294118" green="0.80392156862745101" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TintColor">
+            <color red="0.0" green="0.0" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
