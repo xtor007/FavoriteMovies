@@ -6,22 +6,26 @@
 //
 
 import UIKit
-import RxSwift
 
-class ListVC: UIViewController {
+class ListVC: UIViewController, UITableViewDelegate {
     
     private enum AddMoviePanelStatus {
         case open, close
     }
     
+    enum Section {
+        case first
+    }
+    
     let model: ListViewModel
-    let disposeBag = DisposeBag()
     
     private var addMoviePanelStatus = AddMoviePanelStatus.close {
         didSet {
             changeAddMoviePanel(toStatus: addMoviePanelStatus)
         }
     }
+    
+    var dataSource: UITableViewDiffableDataSource<Section, Movie>!
     
     @IBOutlet weak var addMovieView: UIView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -31,15 +35,33 @@ class ListVC: UIViewController {
     @IBOutlet weak var moviesTable: UITableView!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         titleTextField.delegate = self
         yearTextField.delegate = self
+        
+        //table
+        moviesTable.register(UINib(nibName: MovieCell.nibName, bundle: nil), forCellReuseIdentifier: MovieCell.cellId)
+        moviesTable.delegate = self
+        dataSource = UITableViewDiffableDataSource(tableView: moviesTable, cellProvider: { tableView, indexPath, model in
+            if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellId, for: indexPath) as? MovieCell {
+                cell.initData(movie: model)
+                return cell
+            } else {
+                self.showError(message: "Error in cell init")
+                return UITableViewCell()
+            }
+        })
+        
         //for init value
         changeAddMoviePanel(toStatus: .close)
+        
         //get data
         model.getAllMovies { message in
             self.showError(message: message)
         }
+        updateDatasource()
+        
     }
     
     init(model: ListViewModel) {
@@ -49,6 +71,32 @@ class ListVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @IBAction func addMovieAction(_ sender: Any) {
+        guard let title = titleTextField.text, let year = yearTextField.text else {
+            showError(message: "All fields must be filled")
+            return
+        }
+        model.addMovie(title: title, yearString: year) {
+            self.addMoviePanelStatus = .close
+            self.updateDatasource()
+        } onError: { message in
+            self.showError(message: message)
+        }
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        addMoviePanelStatus = .close
+    }
+    
+    @IBAction func openPanelAction(_ sender: Any) {
+        addMoviePanelStatus = .open
+    }
+    
+    @IBAction func tapAction(_ sender: Any) {
+        titleTextField.endEditing(true)
+        yearTextField.endEditing(true)
     }
     
     ///Change add movie panel status
@@ -70,29 +118,11 @@ class ListVC: UIViewController {
         }
     }
     
-    @IBAction func addMovieAction(_ sender: Any) {
-        guard let title = titleTextField.text, let year = yearTextField.text else {
-            showError(message: "All fields must be filled")
-            return
-        }
-        model.addMovie(title: title, yearString: year) {
-            self.addMoviePanelStatus = .close
-        } onError: { message in
-            self.showError(message: message)
-        }
-    }
-    
-    @IBAction func cancelAction(_ sender: Any) {
-        addMoviePanelStatus = .close
-    }
-    
-    @IBAction func openPanelAction(_ sender: Any) {
-        addMoviePanelStatus = .open
-    }
-    
-    @IBAction func tapAction(_ sender: Any) {
-        titleTextField.endEditing(true)
-        yearTextField.endEditing(true)
+    private func updateDatasource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
+        snapshot.appendSections([.first])
+        snapshot.appendItems(model.data)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
 }

@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import RxSwift
 
 class ListViewModel {
     
-    let disposeBag = DisposeBag()
     let coreDataManager: PersistenceManager = CoreDataManager()
     
     var data = [Movie]()
     
     func addMovie(title: String, yearString: String, onSucces: @escaping ()->(Void), onError: @escaping (String)->(Void)) {
+        
         if title.isEmpty || yearString.isEmpty {
             onError("Fields cannot be empty")
             return
@@ -24,6 +23,7 @@ class ListViewModel {
             onError("The year must contain only digits")
             return
         }
+        
         //year validation
         let date = NSDate()
         let calendar = NSCalendar.current
@@ -32,6 +32,7 @@ class ListViewModel {
             onError("Incorrect year")
             return
         }
+        
         //check header for uniqueness
         if data.contains(where: { movie in
             return movie.title! == title
@@ -39,18 +40,19 @@ class ListViewModel {
             onError("The title cannot have duplicates")
             return
         }
+        
         coreDataManager.addMovie(title: title, year: year) {
             self.getAllMovies(onError: onError)
             onSucces()
         } onError: { message in
             onError(message)
         }
+        
     }
     
     func getAllMovies(onError: @escaping (String)->(Void)) {
         coreDataManager.getAllMovies { movies in
             self.data = movies
-            print(movies.count)
         } onError: { message in
             onError(message)
         }
