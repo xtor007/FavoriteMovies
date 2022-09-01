@@ -11,7 +11,6 @@
 		FF85FAB928BFEBAE00B68C1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAB828BFEBAE00B68C1A /* SceneDelegate.swift */; };
 		FF85FAC128BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF85FABF28BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld */; };
 		FF85FAC328BFEBC100B68C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF85FAC228BFEBC100B68C1A /* Assets.xcassets */; };
-		FF85FAD128BFF5D800B68C1A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF85FAD028BFF5D800B68C1A /* RxSwift */; };
 		FF85FAD628BFF93D00B68C1A /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAD428BFF93D00B68C1A /* ListVC.swift */; };
 		FF85FAD728BFF93D00B68C1A /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF85FAD528BFF93D00B68C1A /* ListVC.xib */; };
 		FF85FAD928BFF98D00B68C1A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAD828BFF98D00B68C1A /* ListViewModel.swift */; };
@@ -20,6 +19,7 @@
 		FF85FAE128C0BF9E00B68C1A /* ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAE028C0BF9D00B68C1A /* ShowError.swift */; };
 		FF85FAE528C11B4400B68C1A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAE328C11B4400B68C1A /* MovieCell.swift */; };
 		FF85FAE628C11B4400B68C1A /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF85FAE428C11B4400B68C1A /* MovieCell.xib */; };
+		FF85FAEA28C130F000B68C1A /* SortingCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAE928C130EF00B68C1A /* SortingCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +37,7 @@
 		FF85FAE028C0BF9D00B68C1A /* ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowError.swift; sourceTree = "<group>"; };
 		FF85FAE328C11B4400B68C1A /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		FF85FAE428C11B4400B68C1A /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		FF85FAE928C130EF00B68C1A /* SortingCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF85FAD128BFF5D800B68C1A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,8 @@
 		FF85FAB528BFEBAE00B68C1A /* FavoriteMovies */ = {
 			isa = PBXGroup;
 			children = (
-				FF85FAE228C11B0000B68C1A /* View */,
+				FF85FAE828C130BB00B68C1A /* Enums */,
+				FF85FAE228C11B0000B68C1A /* Views */,
 				FF85FADF28C0BF7E00B68C1A /* Extensions */,
 				FF85FADA28C0A19F00B68C1A /* Managers */,
 				FF85FAD228BFF8FB00B68C1A /* Controllers */,
@@ -134,12 +135,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FF85FAE228C11B0000B68C1A /* View */ = {
+		FF85FAE228C11B0000B68C1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				FF85FAE728C11B5200B68C1A /* MovieCell */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FF85FAE728C11B5200B68C1A /* MovieCell */ = {
@@ -149,6 +150,14 @@
 				FF85FAE428C11B4400B68C1A /* MovieCell.xib */,
 			);
 			path = MovieCell;
+			sourceTree = "<group>";
+		};
+		FF85FAE828C130BB00B68C1A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				FF85FAE928C130EF00B68C1A /* SortingCase.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +177,6 @@
 			);
 			name = FavoriteMovies;
 			packageProductDependencies = (
-				FF85FAD028BFF5D800B68C1A /* RxSwift */,
 			);
 			productName = FavoriteMovies;
 			productReference = FF85FAB328BFEBAE00B68C1A /* FavoriteMovies.app */;
@@ -199,7 +207,6 @@
 			);
 			mainGroup = FF85FAAA28BFEBAD00B68C1A;
 			packageReferences = (
-				FF85FACF28BFF5D700B68C1A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = FF85FAB428BFEBAE00B68C1A /* Products */;
 			projectDirPath = "";
@@ -234,6 +241,7 @@
 				FF85FAB728BFEBAE00B68C1A /* AppDelegate.swift in Sources */,
 				FF85FADC28C0A1C900B68C1A /* PersistenceManager.swift in Sources */,
 				FF85FAC128BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld in Sources */,
+				FF85FAEA28C130F000B68C1A /* SortingCase.swift in Sources */,
 				FF85FAE128C0BF9E00B68C1A /* ShowError.swift in Sources */,
 				FF85FADE28C0A3ED00B68C1A /* CoreDataManager.swift in Sources */,
 				FF85FAB928BFEBAE00B68C1A /* SceneDelegate.swift in Sources */,
@@ -433,25 +441,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FF85FACF28BFF5D700B68C1A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FF85FAD028BFF5D800B68C1A /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF85FACF28BFF5D700B68C1A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF85FABF28BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld */ = {

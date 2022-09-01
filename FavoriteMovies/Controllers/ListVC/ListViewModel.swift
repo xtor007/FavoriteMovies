@@ -12,8 +12,13 @@ class ListViewModel {
     let coreDataManager: PersistenceManager = CoreDataManager()
     
     var data = [Movie]()
+    var currentSortingCase = SortingCase.byTitle {
+        didSet {
+            sorted(by: currentSortingCase)
+        }
+    }
     
-    func addMovie(title: String, yearString: String, onSucces: @escaping ()->(Void), onError: @escaping (String)->(Void)) {
+    func addMovie(title: String, yearString: String, onSuccess: @escaping ()->(Void), onError: @escaping (String)->(Void)) {
         
         if title.isEmpty || yearString.isEmpty {
             onError("Fields cannot be empty")
@@ -33,7 +38,7 @@ class ListViewModel {
             return
         }
         
-        //check header for uniqueness
+        //check title for uniqueness
         if data.contains(where: { movie in
             return movie.title! == title
         }) {
@@ -43,7 +48,7 @@ class ListViewModel {
         
         coreDataManager.addMovie(title: title, year: year) {
             self.getAllMovies(onError: onError)
-            onSucces()
+            onSuccess()
         } onError: { message in
             onError(message)
         }
@@ -53,6 +58,7 @@ class ListViewModel {
     func getAllMovies(onError: @escaping (String)->(Void)) {
         coreDataManager.getAllMovies { movies in
             self.data = movies
+            self.sorted(by: self.currentSortingCase)
         } onError: { message in
             onError(message)
         }
@@ -64,6 +70,10 @@ class ListViewModel {
         } onError: { message in
             onError(message)
         }
+    }
+    
+    func sorted(by sortingCase: SortingCase) {
+        data = data.sorted(by: sortingCase.sortingClosure())
     }
     
 }

@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,6 +15,7 @@
                 <outlet property="addMovieView" destination="qOj-49-Y7s" id="ce0-eE-H6N"/>
                 <outlet property="moviesTable" destination="Vj1-DR-Hvn" id="Gqr-Qd-hsH"/>
                 <outlet property="openPanelButton" destination="uaU-Qg-jpk" id="PBK-mv-MS9"/>
+                <outlet property="sortingButton" destination="6TW-Vf-Voa" id="dad-ha-V0C"/>
                 <outlet property="titleTextField" destination="Ga4-wP-vyQ" id="QAP-N9-dfc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yearTextField" destination="RHN-9L-5Xy" id="G98-wH-Jek"/>
@@ -28,6 +30,32 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" name="BackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6TW-Vf-Voa">
+                    <rect key="frame" x="274" y="62" width="120" height="30"/>
+                    <color key="backgroundColor" name="TintColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="jaX-lw-4Qh"/>
+                        <constraint firstAttribute="width" constant="120" id="l88-42-TZp"/>
+                    </constraints>
+                    <menu key="menu" title="sorted" id="bRJ-8s-fw8">
+                        <children>
+                            <command title="Alphabetically" id="C5V-ik-Uk6"/>
+                            <command title="Reverce alphabetically" id="HpD-4u-zCP"/>
+                            <command title="By year" id="Gt5-z5-y5J"/>
+                            <command title="Reverce by year" id="hQT-Yv-sO0"/>
+                            <command title="By date added" id="wgu-Hf-s6T"/>
+                            <command title="Reverce by date added" id="6gt-j8-fcU"/>
+                        </children>
+                    </menu>
+                    <state key="normal" title="Sorted by">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaU-Qg-jpk">
                     <rect key="frame" x="324" y="804" width="70" height="50"/>
                     <constraints>
@@ -54,13 +82,13 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="tintColor" name="TintColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 </textField>
                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RHN-9L-5Xy">
                                     <rect key="frame" x="0.0" y="49" width="374" height="34"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 </textField>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyi-7i-67b">
                                     <rect key="frame" x="0.0" y="99" width="374" height="31"/>
@@ -105,10 +133,12 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uaU-Qg-jpk" secondAttribute="bottom" constant="8" id="9Tr-dW-KXE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6TW-Vf-Voa" secondAttribute="trailing" constant="20" id="Ac5-oG-kTe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vj1-DR-Hvn" secondAttribute="trailing" id="H2x-5G-vjF"/>
                 <constraint firstItem="Vj1-DR-Hvn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YID-P2-M75"/>
                 <constraint firstItem="qOj-49-Y7s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aAV-8g-oph"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uaU-Qg-jpk" secondAttribute="trailing" constant="20" id="eDs-bh-BaI"/>
+                <constraint firstItem="6TW-Vf-Voa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="18" id="i3V-9N-dMV"/>
                 <constraint firstItem="qOj-49-Y7s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ufQ-wF-hTk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Vj1-DR-Hvn" secondAttribute="bottom" id="wA8-iF-2G1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qOj-49-Y7s" secondAttribute="trailing" id="wuE-Ea-4fU"/>
@@ -117,7 +147,7 @@
             <connections>
                 <outletCollection property="gestureRecognizers" destination="2P0-MT-g7i" appends="YES" id="Y91-1h-XuY"/>
             </connections>
-            <point key="canvasLocation" x="139" y="110"/>
+            <point key="canvasLocation" x="-121.73913043478262" y="101.78571428571428"/>
         </view>
         <tapGestureRecognizer id="2P0-MT-g7i">
             <connections>

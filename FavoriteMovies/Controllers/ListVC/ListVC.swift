@@ -31,6 +31,7 @@ class ListVC: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
     @IBOutlet weak var openPanelButton: UIButton!
+    @IBOutlet weak var sortingButton: UIButton!
     
     @IBOutlet weak var moviesTable: UITableView!
 
@@ -52,6 +53,21 @@ class ListVC: UIViewController {
                 return UITableViewCell()
             }
         })
+        
+        //sorting menu
+        let handler = { (action: UIAction) in
+            if let sortingCase = SortingCase(rawValue: action.title) {
+                self.model.currentSortingCase = sortingCase
+                self.updateDatasource()
+            } else {
+                self.showError(message: "Error in menu")
+            }
+        }
+        var children = [UIAction]()
+        SortingCase.allCases.forEach { sortingCase in
+            children.append(sortingCase.getAction(handler: handler))
+        }
+        sortingButton.menu = UIMenu(title: "sorted", image: nil, identifier: nil, options: .singleSelection, children: children)
         
         //for init value
         changeAddMoviePanel(toStatus: .close)
