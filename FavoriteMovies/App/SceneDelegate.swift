@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let listViewModel = ListViewModel()
+        let manager = CoreDataManager()
+        let listViewModel = ListViewModel(manager: manager)
         let listVC = ListVC(model: listViewModel)
         if let window = window {
             window.rootViewController = listVC

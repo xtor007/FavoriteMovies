@@ -9,13 +9,17 @@ import Foundation
 
 class ListViewModel {
     
-    let coreDataManager: PersistenceManager = CoreDataManager()
+    let coreDataManager: PersistenceManager
     
     var data = [Movie]()
     var currentSortingCase = SortingCase.byTitle {
         didSet {
             sorted(by: currentSortingCase)
         }
+    }
+    
+    init(manager: PersistenceManager) {
+        coreDataManager = manager
     }
     
     func addMovie(title: String, yearString: String, onSuccess: @escaping ()->(Void), onError: @escaping (String)->(Void)) {
