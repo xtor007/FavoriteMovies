@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListVC: UIViewController, UITableViewDelegate {
+class ListVC: UIViewController {
     
     private enum AddMoviePanelStatus {
         case open, close
@@ -136,6 +136,24 @@ extension ListVC: UITextFieldDelegate {
             addMovieAction(0)
         }
         return true
+    }
+    
+}
+
+extension ListVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let swipeDelete = UIContextualAction(style: .normal, title: "DELETE") { _, _, _ in
+            self.model.deleteMovie(movieIndex: indexPath.row) { message in
+                self.showError(message: message)
+            }
+            self.updateDatasource()
+        }
+        swipeDelete.backgroundColor = .systemRed
+        let actions = [swipeDelete]
+        let res = UISwipeActionsConfiguration(actions: actions)
+        res.performsFirstActionWithFullSwipe = true
+        return res
     }
     
 }

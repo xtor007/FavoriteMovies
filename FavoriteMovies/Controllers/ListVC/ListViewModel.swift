@@ -58,4 +58,12 @@ class ListViewModel {
         }
     }
     
+    func deleteMovie(movieIndex: Int, onError: @escaping (String)->(Void)) {
+        coreDataManager.deleteMovie(data[movieIndex]) {
+            self.getAllMovies(onError: onError)
+        } onError: { message in
+            onError(message)
+        }
+    }
+    
 }
