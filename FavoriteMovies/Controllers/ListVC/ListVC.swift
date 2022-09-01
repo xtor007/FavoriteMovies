@@ -34,6 +34,10 @@ class ListVC: UIViewController {
         super.viewDidLoad()
         //for init value
         changeAddMoviePanel(toStatus: .close)
+        //get data
+        model.getAllMovies { message in
+            print(message)
+        }
     }
     
     init(model: ListViewModel) {
@@ -56,10 +60,23 @@ class ListVC: UIViewController {
         case .close:
             addMovieView.transform = CGAffineTransform(translationX: 0, y: -250)
             self.openPanelButton.alpha = 1
+            self.titleTextField.text = ""
+            self.titleTextField.endEditing(true)
+            self.yearTextField.text = ""
+            self.yearTextField.endEditing(true)
         }
     }
     
     @IBAction func addMovieAction(_ sender: Any) {
+        guard let title = titleTextField.text, let year = yearTextField.text else {
+            print("err")
+            return
+        }
+        model.addMovie(title: title, yearString: year) {
+            self.addMoviePanelStatus = .close
+        } onError: { message in
+            print(message)
+        }
     }
     
     @IBAction func cancelAction(_ sender: Any) {
