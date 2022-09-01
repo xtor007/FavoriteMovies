@@ -17,6 +17,7 @@
 		FF85FAD928BFF98D00B68C1A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAD828BFF98D00B68C1A /* ListViewModel.swift */; };
 		FF85FADC28C0A1C900B68C1A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FADB28C0A1C900B68C1A /* PersistenceManager.swift */; };
 		FF85FADE28C0A3ED00B68C1A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FADD28C0A3EC00B68C1A /* CoreDataManager.swift */; };
+		FF85FAE128C0BF9E00B68C1A /* ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85FAE028C0BF9D00B68C1A /* ShowError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		FF85FAD828BFF98D00B68C1A /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		FF85FADB28C0A1C900B68C1A /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		FF85FADD28C0A3EC00B68C1A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FF85FAE028C0BF9D00B68C1A /* ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		FF85FAB528BFEBAE00B68C1A /* FavoriteMovies */ = {
 			isa = PBXGroup;
 			children = (
+				FF85FADF28C0BF7E00B68C1A /* Extensions */,
 				FF85FADA28C0A19F00B68C1A /* Managers */,
 				FF85FAD228BFF8FB00B68C1A /* Controllers */,
 				FF85FACE28BFEC3500B68C1A /* Resources */,
@@ -116,6 +119,14 @@
 				FF85FADD28C0A3EC00B68C1A /* CoreDataManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		FF85FADF28C0BF7E00B68C1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF85FAE028C0BF9D00B68C1A /* ShowError.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 				FF85FAB728BFEBAE00B68C1A /* AppDelegate.swift in Sources */,
 				FF85FADC28C0A1C900B68C1A /* PersistenceManager.swift in Sources */,
 				FF85FAC128BFEBAE00B68C1A /* FavoriteMovies.xcdatamodeld in Sources */,
+				FF85FAE128C0BF9E00B68C1A /* ShowError.swift in Sources */,
 				FF85FADE28C0A3ED00B68C1A /* CoreDataManager.swift in Sources */,
 				FF85FAB928BFEBAE00B68C1A /* SceneDelegate.swift in Sources */,
 			);

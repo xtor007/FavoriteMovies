@@ -56,7 +56,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RHN-9L-5Xy">
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RHN-9L-5Xy">
                                     <rect key="frame" x="0.0" y="49" width="374" height="34"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -102,6 +102,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uaU-Qg-jpk" secondAttribute="bottom" constant="8" id="9Tr-dW-KXE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vj1-DR-Hvn" secondAttribute="trailing" id="H2x-5G-vjF"/>
@@ -113,8 +114,16 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qOj-49-Y7s" secondAttribute="trailing" id="wuE-Ea-4fU"/>
                 <constraint firstItem="Vj1-DR-Hvn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z16-Ko-Bvm"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="2P0-MT-g7i" appends="YES" id="Y91-1h-XuY"/>
+            </connections>
             <point key="canvasLocation" x="139" y="110"/>
         </view>
+        <tapGestureRecognizer id="2P0-MT-g7i">
+            <connections>
+                <action selector="tapAction:" destination="-1" id="ZLV-DY-GLB"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>

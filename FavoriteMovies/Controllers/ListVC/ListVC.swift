@@ -32,11 +32,13 @@ class ListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleTextField.delegate = self
+        yearTextField.delegate = self
         //for init value
         changeAddMoviePanel(toStatus: .close)
         //get data
         model.getAllMovies { message in
-            print(message)
+            self.showError(message: message)
         }
     }
     
@@ -60,6 +62,7 @@ class ListVC: UIViewController {
         case .close:
             addMovieView.transform = CGAffineTransform(translationX: 0, y: -250)
             self.openPanelButton.alpha = 1
+            //close keyboard
             self.titleTextField.text = ""
             self.titleTextField.endEditing(true)
             self.yearTextField.text = ""
@@ -69,13 +72,13 @@ class ListVC: UIViewController {
     
     @IBAction func addMovieAction(_ sender: Any) {
         guard let title = titleTextField.text, let year = yearTextField.text else {
-            print("err")
+            showError(message: "All fields must be filled")
             return
         }
         model.addMovie(title: title, yearString: year) {
             self.addMoviePanelStatus = .close
         } onError: { message in
-            print(message)
+            self.showError(message: message)
         }
     }
     
@@ -85,6 +88,24 @@ class ListVC: UIViewController {
     
     @IBAction func openPanelAction(_ sender: Any) {
         addMoviePanelStatus = .open
+    }
+    
+    @IBAction func tapAction(_ sender: Any) {
+        titleTextField.endEditing(true)
+        yearTextField.endEditing(true)
+    }
+    
+}
+
+extension ListVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0 { //is title
+            yearTextField.becomeFirstResponder()
+        } else if textField.tag == 1 { //is year
+            addMovieAction(0)
+        }
+        return true
     }
     
 }
